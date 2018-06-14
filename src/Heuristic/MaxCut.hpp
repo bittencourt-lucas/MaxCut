@@ -8,11 +8,15 @@
 #include <random>
 #include "../Graph/Graph.hpp"
 
+typedef struct Best {
+    int stEdge;
+    int cutValue;
+} Best;
+
 class MaxCut {
 
 private:
-
-    std::queue<int> score;
+    std::queue<int> edges_queue;
     std::vector<int> wgtU;
     std::vector<int> wgtV;
     std::vector<bool> U;
@@ -21,7 +25,8 @@ private:
 
 public:
     void insert(int, std::vector<bool>&, std::vector<int>&, std::vector<std::vector<Edge>>&);
-    void construct(std::vector<std::vector<Edge>>&, std::vector<Edge>&);
+    Best construct(int, std::vector<std::vector<Edge>>&, std::vector<Edge>&);
+    void searchImprovement(Best, std::vector<std::vector<Edge>>&, std::vector<Edge>&);
 
 };
 
