@@ -1,13 +1,14 @@
-#ifndef CONSTRUCTION_HPP_
-#define CONSTRUCTION_HPP_
+#ifndef MAXCUT_HPP_
+#define MAXCUT_HPP_
 
 #include <vector>
 #include <queue>
 #include <algorithm>
 #include <iostream>
+#include <random>
 #include "../Graph/Graph.hpp"
 
-class Construction {
+class MaxCut {
 
 private:
 
@@ -24,4 +25,4 @@ public:
 
 };
 
-#endif /* CONSTRUCTION_HPP_ */
+#endif /* MAXCUT_HPP_ */

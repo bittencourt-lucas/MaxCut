@@ -9,7 +9,7 @@
 
 #include <fstream>
 #include "../Graph/Graph.hpp"
-#include "../Heuristic/Construction.hpp"
+#include "../Heuristic/MaxCut.hpp"
 
 int main() {
     int vertices;
@@ -39,7 +39,7 @@ int main() {
     // Criação do grafo.
     graph->buildGraph();
 
-    Construction solver;
+    MaxCut solver;
     solver.construct(graph->getList(), graph->getEdges());
 
     return 0;
