@@ -8,11 +8,6 @@
 #include <random>
 #include "../Graph/Graph.hpp"
 
-typedef struct Best {
-    int stEdge;
-    int cutValue;
-} Best;
-
 class MaxCut {
 
 private:
@@ -25,8 +20,8 @@ private:
 
 public:
     void insert(int, std::vector<bool>&, std::vector<int>&, std::vector<std::vector<Edge>>&);
-    Best construct(int, std::vector<std::vector<Edge>>&, std::vector<Edge>&);
-    void searchImprovement(Best, std::vector<std::vector<Edge>>&, std::vector<Edge>&);
+    int construct(std::vector<std::vector<Edge>>&, std::vector<Edge>&);
+    void VND(std::vector<std::vector<Edge>>&, std::vector<bool>&, int, int);
 
 };
 

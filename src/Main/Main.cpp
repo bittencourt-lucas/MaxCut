@@ -40,8 +40,8 @@ int main() {
     graph->buildGraph();
 
     MaxCut solver;
-    Best first = solver.construct(-1, graph->getList(), graph->getEdges());
-    solver.searchImprovement(first, graph->getList(), graph->getEdges());
+    int first = solver.construct(graph->getList(), graph->getEdges());
+    //solver.searchImprovement(first, graph->getList(), graph->getEdges());
 
     return 0;
 }
