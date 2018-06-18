@@ -59,15 +59,15 @@ int MaxCut::construct(std::vector<std::vector<Edge>>& adjList,
             std::cout << "Vértice " << i << std::endl;
     }*/
     std::cout << "Corte: " << cut << std::endl;
-    VND(adjList, U, 10, cut);
+    cut = VND(adjList, U, 10, cut);
     return cut;
 }
 
-void MaxCut::VND(std::vector<std::vector<Edge>>& adjList, std::vector<bool> &U, int r, int firstCut) {
+int MaxCut::VND(std::vector<std::vector<Edge>>& adjList, std::vector<bool> &U, int r, int firstCut) {
     int k = 1;
     int vertices = U.size();
     int newCut = 0;
-    int bestCut = firstCut;
+    int bestLocal = firstCut;
     std::vector<bool> W = U;
     int timelimit = 0;
     while (k <= r) {
@@ -92,14 +92,28 @@ void MaxCut::VND(std::vector<std::vector<Edge>>& adjList, std::vector<bool> &U, 
             U = W;
             k = 1;
             timelimit++;
-            if (timelimit == 1000) break;
+            if (timelimit == 100) break;
         }
         else {
             k++;
-            bestCut = newCut;
+            bestLocal = newCut;
             //timelimit++;
             //if (timelimit == 5) break;
         }
     }
-    std::cout << "Melhor local: " << bestCut << std::endl;
+    std::cout << "Melhor local: " << bestLocal << std::endl;
+    return bestLocal;
+}
+
+int MaxCut::MultiStart(std::vector<std::vector<Edge>>& adjList, std::vector<Edge>& edges, int k) {
+    int bestCut = 0;
+    int cut = 0;
+    int r = 0;
+    while (r < k) {
+        cut = construct(adjList, edges);
+        if (cut > bestCut)
+            bestCut = cut;
+        r++;
+    }
+    return bestCut;
 }

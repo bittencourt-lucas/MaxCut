@@ -21,8 +21,8 @@ private:
 public:
     void insert(int, std::vector<bool>&, std::vector<int>&, std::vector<std::vector<Edge>>&);
     int construct(std::vector<std::vector<Edge>>&, std::vector<Edge>&);
-    void VND(std::vector<std::vector<Edge>>&, std::vector<bool>&, int, int);
-
+    int VND(std::vector<std::vector<Edge>>&, std::vector<bool>&, int, int);
+    int MultiStart(std::vector<std::vector<Edge>>&, std::vector<Edge>&, int);
 };
 
 #endif /* MAXCUT_HPP_ */

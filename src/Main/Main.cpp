@@ -40,8 +40,8 @@ int main() {
     graph->buildGraph();
 
     MaxCut solver;
-    int first = solver.construct(graph->getList(), graph->getEdges());
-    //solver.searchImprovement(first, graph->getList(), graph->getEdges());
+    int cut = solver.MultiStart(graph->getList(), graph->getEdges(), 100);
+    std::cout << "Melhor corte encontrado: " << cut << std::endl;
 
     return 0;
 }
